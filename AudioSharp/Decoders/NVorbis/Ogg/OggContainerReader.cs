@@ -14,7 +14,7 @@ namespace AudioSharp.Decoders.NVorbis.Ogg
     /// <summary>
     /// Provides an <see cref="IContainerReader"/> implementation for basic Ogg files.
     /// </summary>
-    public class ContainerReader : IContainerReader
+    class ContainerReader : IContainerReader
     {
         Crc _crc = new Crc();
         BufferedReadStream _stream;

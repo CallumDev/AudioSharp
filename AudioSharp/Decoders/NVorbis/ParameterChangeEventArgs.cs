@@ -16,7 +16,7 @@ namespace AudioSharp.Decoders.NVorbis
     /// Event data for when a logical stream has a parameter change.
     /// </summary>
     [Serializable]
-    public class ParameterChangeEventArgs : EventArgs
+    class ParameterChangeEventArgs : EventArgs
     {
         /// <summary>
         /// Creates a new instance of <see cref="ParameterChangeEventArgs"/>.

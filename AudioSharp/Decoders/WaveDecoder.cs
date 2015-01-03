@@ -44,8 +44,8 @@ namespace AudioSharp.Decoders
 			ushort channels = reader.ReadUInt16 ();
 			sampleRate = reader.ReadInt32 ();
 			int byteRate = reader.ReadInt32 ();
-			ushort blockAlign = reader.ReadInt16 ();
-			ushort bits = reader.ReadInt16 ();
+			ushort blockAlign = reader.ReadUInt16 ();
+			ushort bits = reader.ReadUInt16 ();
 			if (channels == 2) {
 				if (bits == 8) {
 					format = SoundFormat.Stereo8;
@@ -105,7 +105,7 @@ namespace AudioSharp.Decoders
 		{
 			var position = reader.BaseStream.Position;
 			if (length > (dataStart + dataSize) - position) {
-				length = (dataStart + dataSize) - position;
+				length = (int)((dataStart + dataSize) - position);
 			}
 			buffer = new byte[length];
 			reader.Read (buffer, 0, length);

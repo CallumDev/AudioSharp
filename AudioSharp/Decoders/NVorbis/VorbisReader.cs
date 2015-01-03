@@ -13,7 +13,7 @@ using System.IO;
 
 namespace AudioSharp.Decoders.NVorbis
 {
-    public class VorbisReader : IDisposable
+    class VorbisReader : IDisposable
     {
         int _streamIdx;
 

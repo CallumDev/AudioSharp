@@ -15,7 +15,7 @@ namespace AudioSharp.Decoders.NVorbis
     /// <summary>
     /// Provides packets on-demand for the Vorbis stream decoder.
     /// </summary>
-    public interface IPacketProvider : IDisposable
+    interface IPacketProvider : IDisposable
     {
         /// <summary>
         /// Gets the serial number associated with this stream.

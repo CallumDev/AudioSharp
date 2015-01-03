@@ -9,7 +9,7 @@ using System;
 
 namespace AudioSharp.Decoders.NVorbis
 {
-    public interface IVorbisStreamStatus
+    interface IVorbisStreamStatus
     {
         /// <summary>
         /// Gets the counters for latency and bitrate calculations, as well as overall bit counts
