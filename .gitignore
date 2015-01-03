@@ -1,0 +1,10 @@
+# Folders
+obj/
+[Bb]in/
+[Dd]ebug/
+[Rr]elease/
+# Files
+*.suo
+*.userprefs
+# Gedit backups
+*~
