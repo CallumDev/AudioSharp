@@ -66,10 +66,18 @@ namespace AudioSharp.Decoders
 				throw new NotSupportedException ("Unsupported channels " + channels);
 			}
 			//get data block
-			reader.Read (buffer, 0, 4);
-			string dataChunk = Encoding.ASCII.GetString (buffer);
-			if (dataChunk != "data") {
-				throw new NotSupportedException ("This wave file is not supported");
+			while (true) {
+				//read the chunk specifier
+				reader.Read (buffer, 0, 4);
+				string dataChunk = Encoding.ASCII.GetString (buffer);
+				if (dataChunk != "data") {
+					//not the data chunk. skip
+					var size = reader.ReadInt32 ();
+					reader.BaseStream.Seek (size, SeekOrigin.Current);
+				} else {
+					//found the data chunk!
+					break;
+				}
 			}
 			dataSize = reader.ReadInt32 ();
 			dataStart = reader.BaseStream.Position;
