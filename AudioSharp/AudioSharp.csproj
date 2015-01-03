@@ -42,6 +42,31 @@
     <Compile Include="Decoders\DecoderDetection.cs" />
     <Compile Include="Decoders\IDecoder.cs" />
     <Compile Include="Decoders\OggDecoder.cs" />
+    <Compile Include="Decoders\NVorbis\BufferedReadStream.cs" />
+    <Compile Include="Decoders\NVorbis\DataPacket.cs" />
+    <Compile Include="Decoders\NVorbis\Huffman.cs" />
+    <Compile Include="Decoders\NVorbis\IContainerReader.cs" />
+    <Compile Include="Decoders\NVorbis\IPacketProvider.cs" />
+    <Compile Include="Decoders\NVorbis\IVorbisStreamStatus.cs" />
+    <Compile Include="Decoders\NVorbis\Mdct.cs" />
+    <Compile Include="Decoders\NVorbis\NewStreamEventArgs.cs" />
+    <Compile Include="Decoders\NVorbis\ParameterChangeEventArgs.cs" />
+    <Compile Include="Decoders\NVorbis\RingBuffer.cs" />
+    <Compile Include="Decoders\NVorbis\StreamReadBuffer.cs" />
+    <Compile Include="Decoders\NVorbis\Utils.cs" />
+    <Compile Include="Decoders\NVorbis\VorbisCodebook.cs" />
+    <Compile Include="Decoders\NVorbis\VorbisFloor.cs" />
+    <Compile Include="Decoders\NVorbis\VorbisMapping.cs" />
+    <Compile Include="Decoders\NVorbis\VorbisMode.cs" />
+    <Compile Include="Decoders\NVorbis\VorbisReader.cs" />
+    <Compile Include="Decoders\NVorbis\VorbisResidue.cs" />
+    <Compile Include="Decoders\NVorbis\VorbisStreamDecoder.cs" />
+    <Compile Include="Decoders\NVorbis\VorbisTime.cs" />
+    <Compile Include="Decoders\NVorbis\Ogg\OggContainerReader.cs" />
+    <Compile Include="Decoders\NVorbis\Ogg\OggCrc.cs" />
+    <Compile Include="Decoders\NVorbis\Ogg\OggPacket.cs" />
+    <Compile Include="Decoders\NVorbis\Ogg\OggPacketReader.cs" />
+    <Compile Include="Decoders\NVorbis\Ogg\OggPageFlags.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -55,5 +80,7 @@
   </ProjectExtensions>
   <ItemGroup>
     <Folder Include="Decoders\" />
+    <Folder Include="Decoders\NVorbis\" />
+    <Folder Include="Decoders\NVorbis\Ogg\" />
   </ItemGroup>
 </Project>

@@ -6,7 +6,7 @@ namespace AudioSharp.Containers
 	class WaveDecoder : IDecoder
 	{
 		//RIFF magic numbers
-		const short CODEC_PCM = 0x1;
+		const ushort CODEC_PCM = 0x1;
 		//members
 		CodecId codec;
 
@@ -31,6 +31,7 @@ namespace AudioSharp.Containers
 			switch (codecId) {
 			case CODEC_PCM:
 				codec = CodecId.PCM;
+				break;
 			default:
 				throw new NotSupportedException ("Unsupported wave codec");
 			}
