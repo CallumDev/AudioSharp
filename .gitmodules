@@ -1,0 +1,3 @@
+[submodule "Dependencies/opentk"]
+	path = Dependencies/opentk
+	url = https://github.com/opentk/opentk
