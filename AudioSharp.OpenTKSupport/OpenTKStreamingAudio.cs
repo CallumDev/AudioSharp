@@ -5,6 +5,9 @@ using OpenTK.Audio;
 using OpenTK.Audio.OpenAL;
 namespace AudioSharp.OpenTKSupport
 {
+	/// <summary>
+	/// An IStreamingAudio implementation using OpenAL
+	/// </summary>
 	public class OpenTKStreamingAudio : IStreamingAudio
 	{
 		public event BufferNeededHandler BufferNeeded;

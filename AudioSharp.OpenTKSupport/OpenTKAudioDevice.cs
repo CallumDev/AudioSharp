@@ -6,6 +6,9 @@ using OpenTK.Audio;
 using OpenTK.Audio.OpenAL;
 namespace AudioSharp.OpenTKSupport
 {
+	/// <summary>
+	/// An IAudioDevice implementation using OpenAL
+	/// </summary>
 	public class OpenTKAudioDevice : IAudioDevice
 	{
 		internal AudioContext context;
