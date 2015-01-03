@@ -2,10 +2,9 @@
 
 namespace AudioSharp
 {
-	public delegate bool BufferNeededHandler(IStreamingAudio instance);
+	public delegate bool BufferNeededHandler(IStreamingAudio instance, out byte[] buffer);
 	public interface IStreamingAudio : IDisposable
 	{
-		void SubmitBuffer(byte[] buffer);
 		void Play();
 		void Pause();
 		void Stop();

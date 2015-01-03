@@ -47,7 +47,7 @@ namespace AudioSharp.Decoders
 		}
 		public void Reset()
 		{
-
+			reader.DecodedTime = TimeSpan.Zero;
 		}
 		public unsafe int Read(int length, out byte[] buffer)
 		{

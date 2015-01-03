@@ -9,16 +9,28 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{53500F04-5
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioSharp.OpenTKSupport", "AudioSharp.OpenTKSupport\AudioSharp.OpenTKSupport.csproj", "{4047C13F-E944-4274-AD8B-1108C04120A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenTKTest", "OpenTKTest\OpenTKTest.csproj", "{28F2131B-FCAE-4038-A818-1857D7FF0992}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28F2131B-FCAE-4038-A818-1857D7FF0992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F2131B-FCAE-4038-A818-1857D7FF0992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F2131B-FCAE-4038-A818-1857D7FF0992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F2131B-FCAE-4038-A818-1857D7FF0992}.Release|Any CPU.Build.0 = Release|Any CPU
 		{34797183-E9E7-480F-94C5-CAA0355E9D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{34797183-E9E7-480F-94C5-CAA0355E9D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{34797183-E9E7-480F-94C5-CAA0355E9D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{34797183-E9E7-480F-94C5-CAA0355E9D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4047C13F-E944-4274-AD8B-1108C04120A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4047C13F-E944-4274-AD8B-1108C04120A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4047C13F-E944-4274-AD8B-1108C04120A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4047C13F-E944-4274-AD8B-1108C04120A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

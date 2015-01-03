@@ -2,7 +2,7 @@
 
 namespace AudioSharp
 {
-	public interface IAudioDevice
+	public interface IAudioDevice : IDisposable
 	{
 		IStreamingAudio CreateStreamer(SoundFormat format, int sampleRate);
 	}

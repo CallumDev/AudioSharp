@@ -33,11 +33,9 @@ namespace AudioSharp
 			streamer.BufferNeeded += GrabBuffer;
 			Play ();
 		}
-		bool GrabBuffer(IStreamingAudio instance)
+		bool GrabBuffer(IStreamingAudio instance, out byte[] buffer)
 		{
-			byte[] buffer;
 			int length = currentFile.Decoder.Read (BufferSize, out buffer);
-			instance.SubmitBuffer (buffer);
 			return (length == BufferSize);
 		}
 		public void Play()
