@@ -9,9 +9,15 @@ namespace AudioSharp.Decoders
 		const ushort CODEC_PCM = 0x1;
 		//members
 		CodecId codec;
-
+		int sampleRate;
+		SoundFormat format;
+		int dataSize;
+		long dataStart;
+		BinaryReader reader;
+		TimeSpan duration;
 		public WaveDecoder (BinaryReader reader)
 		{
+			this.reader = reader;
 			byte[] buffer = new byte[4];
 			//further checks
 			int riffChunkSize = reader.ReadInt32 ();
@@ -35,7 +41,39 @@ namespace AudioSharp.Decoders
 			default:
 				throw new NotSupportedException ("Unsupported wave codec");
 			}
-
+			ushort channels = reader.ReadUInt16 ();
+			sampleRate = reader.ReadInt32 ();
+			int byteRate = reader.ReadInt32 ();
+			ushort blockAlign = reader.ReadInt16 ();
+			ushort bits = reader.ReadInt16 ();
+			if (channels == 2) {
+				if (bits == 8) {
+					format = SoundFormat.Stereo8;
+				} else if (bits == 16) {
+					format = SoundFormat.Stereo16;
+				} else {
+					throw new NotSupportedException ("Unsupported bits " + bits);
+				}
+			} else if (channels == 1) {
+				if (bits == 8) {
+					format = SoundFormat.Mono8;
+				} else if (bits == 16) {
+					format = SoundFormat.Mono16;
+				} else {
+					throw new NotSupportedException ("Unsupported bits " + bits);
+				}
+			} else {
+				throw new NotSupportedException ("Unsupported channels " + channels);
+			}
+			//get data block
+			reader.Read (buffer, 0, 4);
+			string dataChunk = Encoding.ASCII.GetString (buffer);
+			if (dataChunk != "data") {
+				throw new NotSupportedException ("This wave file is not supported");
+			}
+			dataSize = reader.ReadInt32 ();
+			dataStart = reader.BaseStream.Position;
+			duration = TimeSpan.FromSeconds ((double)dataSize / ((double)sampleRate * (double)channels * (double)bits / 8.0));
 		}
 
 		public CodecId CodecId {
@@ -46,27 +84,32 @@ namespace AudioSharp.Decoders
 
 		public TimeSpan Duration {
 			get {
-				throw new NotImplementedException ();
+				return duration;
 			}
 		}
 		public SoundFormat Format {
 			get {
-				throw new NotImplementedException ();
+				return format;
 			}
 		}
 		public int SampleRate {
 			get {
-				throw new NotImplementedException ();
+				return sampleRate;
 			}
 		}
 		public void Reset()
 		{
-
+			reader.BaseStream.Seek (dataStart, SeekOrigin.Begin);
 		}
 		public int Read(int length, out byte[] buffer)
 		{
-			buffer = null;
-			throw new NotImplementedException ();
+			var position = reader.BaseStream.Position;
+			if (length > (dataStart + dataSize) - position) {
+				length = (dataStart + dataSize) - position;
+			}
+			buffer = new byte[length];
+			reader.Read (buffer, 0, length);
+			return length;
 		}
 	}
 }
