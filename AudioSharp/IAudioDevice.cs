@@ -4,7 +4,7 @@ namespace AudioSharp
 {
 	public interface IAudioDevice
 	{
-		IAudioInstance CreateInstance();
+		IStreamingAudio CreateStreamer();
 	}
 }
 

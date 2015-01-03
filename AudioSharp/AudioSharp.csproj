@@ -33,8 +33,27 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlayState.cs" />
-    <Compile Include="IAudioInstance.cs" />
+    <Compile Include="AudioFile.cs" />
     <Compile Include="IAudioDevice.cs" />
+    <Compile Include="Containers\IContainerFile.cs" />
+    <Compile Include="Containers\ContainerDetection.cs" />
+    <Compile Include="Containers\RIFFContainer.cs" />
+    <Compile Include="Containers\OggContainer.cs" />
+    <Compile Include="CodecId.cs" />
+    <Compile Include="SoundFormat.cs" />
+    <Compile Include="IStreamingAudio.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Policies>
+          <DotNetNamingPolicy DirectoryNamespaceAssociation="PrefixedHierarchical" ResourceNamePolicy="FileFormatDefault" />
+        </Policies>
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Folder Include="Containers\" />
+  </ItemGroup>
 </Project>

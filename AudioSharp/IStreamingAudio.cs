@@ -2,7 +2,7 @@
 
 namespace AudioSharp
 {
-	public interface IAudioInstance : IDisposable
+	public interface IStreamingAudio : IDisposable
 	{
 		void SubmitBuffer(byte[] buffer);
 		void Play();
