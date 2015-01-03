@@ -7,7 +7,7 @@
  ***************************************************************************/
 using System;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     /// <summary>
     /// Provides a interface for a Vorbis logical stream container.

@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     public class VorbisReader : IDisposable
     {

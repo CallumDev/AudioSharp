@@ -5,7 +5,7 @@
  * See COPYING for license terms (Ms-PL).                                   *
  *                                                                          *
  ***************************************************************************/
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     static class Utils
     {

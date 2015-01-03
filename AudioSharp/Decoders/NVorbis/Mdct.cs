@@ -9,7 +9,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     class Mdct
     {

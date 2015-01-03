@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Text;
-namespace AudioSharp.Containers
+namespace AudioSharp.Decoders
 {
 	class WaveDecoder : IDecoder
 	{
@@ -38,9 +38,35 @@ namespace AudioSharp.Containers
 
 		}
 
-		public CodecId GetCodecId()
+		public CodecId CodecId {
+			get {
+				return codec;
+			}
+		}
+
+		public TimeSpan Duration {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+		public SoundFormat Format {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+		public int SampleRate {
+			get {
+				throw new NotImplementedException ();
+			}
+		}
+		public void Reset()
 		{
-			return CodecId.PCM;
+
+		}
+		public int Read(int length, out byte[] buffer)
+		{
+			buffer = null;
+			throw new NotImplementedException ();
 		}
 	}
 }

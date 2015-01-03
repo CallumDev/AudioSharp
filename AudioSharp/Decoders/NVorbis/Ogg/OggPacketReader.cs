@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 
-namespace NVorbis.Ogg
+namespace AudioSharp.Decoders.NVorbis.Ogg
 {
     [System.Diagnostics.DebuggerTypeProxy(typeof(PacketReader.DebugView))]
     class PacketReader : IPacketProvider

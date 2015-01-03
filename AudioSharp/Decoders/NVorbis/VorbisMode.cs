@@ -8,7 +8,7 @@
 using System;
 using System.IO;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     class VorbisMode
     {

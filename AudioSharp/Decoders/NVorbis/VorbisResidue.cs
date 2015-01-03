@@ -9,7 +9,7 @@ using System;
 using System.Linq;
 using System.IO;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     abstract class VorbisResidue
     {

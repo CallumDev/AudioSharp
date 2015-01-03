@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NVorbis.Ogg
+namespace AudioSharp.Decoders.NVorbis.Ogg
 {
     class Crc
     {

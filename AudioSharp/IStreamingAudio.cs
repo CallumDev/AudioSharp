@@ -2,13 +2,14 @@
 
 namespace AudioSharp
 {
+	public delegate bool BufferNeededHandler(IStreamingAudio instance);
 	public interface IStreamingAudio : IDisposable
 	{
 		void SubmitBuffer(byte[] buffer);
 		void Play();
 		void Pause();
 		void Stop();
-		event EventHandler BufferNeeded;
+		event BufferNeededHandler BufferNeeded;
 		PlayState GetState();
 	}
 }

@@ -7,7 +7,7 @@
  ***************************************************************************/
 using System;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     /// <summary>
     /// Event data for when a new logical stream is found in a container.

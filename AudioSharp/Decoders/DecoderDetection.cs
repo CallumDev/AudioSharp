@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-namespace AudioSharp.Containers
+namespace AudioSharp.Decoders
 {
 	class DecoderDetection
 	{
@@ -13,7 +13,7 @@ namespace AudioSharp.Containers
 			if (magic == RIFF_MAGIC) {
 				return new WaveDecoder (reader);
 			} else if (magic == OGG_MAGIC) {
-				return new OggDecoder (reader);
+				return new NVorbisDecoder (stream);
 			}
 			throw new NotSupportedException ("Unsupported file format");
 		}

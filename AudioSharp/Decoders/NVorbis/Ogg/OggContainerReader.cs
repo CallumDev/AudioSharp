@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace NVorbis.Ogg
+namespace AudioSharp.Decoders.NVorbis.Ogg
 {
     /// <summary>
     /// Provides an <see cref="IContainerReader"/> implementation for basic Ogg files.

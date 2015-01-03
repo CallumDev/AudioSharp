@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     /// <summary>
     /// A thread-safe, read-only, buffering stream wrapper.

@@ -7,7 +7,7 @@
  ***************************************************************************/
 using System;
 
-namespace NVorbis.Ogg
+namespace AudioSharp.Decoders.NVorbis.Ogg
 {
     [Flags]
     enum PageFlags

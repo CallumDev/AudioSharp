@@ -1,4 +1,4 @@
-﻿﻿/****************************************************************************
+﻿/****************************************************************************
  * NVorbis                                                                  *
  * Copyright (C) 2014, Andrew Ward <afward@gmail.com>                       *
  *                                                                          *
@@ -9,7 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     /// <summary>
     /// A single data packet from a logical Vorbis stream.

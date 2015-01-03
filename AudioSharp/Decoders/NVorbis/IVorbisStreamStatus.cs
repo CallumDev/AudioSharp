@@ -7,7 +7,7 @@
  ***************************************************************************/
 using System;
 
-namespace NVorbis
+namespace AudioSharp.Decoders.NVorbis
 {
     public interface IVorbisStreamStatus
     {

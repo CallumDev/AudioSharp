@@ -1,11 +1,16 @@
 ﻿using System;
 using System.IO;
-using AudioSharp.Containers;
+using AudioSharp.Decoders;
 namespace AudioSharp
 {
 	public class AudioFile
 	{
 		IDecoder decoder;
+		public IDecoder Decoder {
+			get {
+				return decoder;
+			}
+		}
 		public AudioFile (Stream stream)
 		{
 			if (!stream.CanSeek)
@@ -13,9 +18,15 @@ namespace AudioSharp
 
 			decoder = DecoderDetection.GetDecoderFromStream (stream);
 		}
+
 		public CodecId CodecId {
 			get {
-				return decoder.GetCodecId ();
+				return Decoder.CodecId;
+			}
+		}
+		public TimeSpan Duration {
+			get {
+				return Decoder.Duration;
 			}
 		}
 	}

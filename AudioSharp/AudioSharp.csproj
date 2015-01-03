@@ -18,6 +18,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -26,6 +27,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,7 +43,6 @@
     <Compile Include="Decoders\WaveDecoder.cs" />
     <Compile Include="Decoders\DecoderDetection.cs" />
     <Compile Include="Decoders\IDecoder.cs" />
-    <Compile Include="Decoders\OggDecoder.cs" />
     <Compile Include="Decoders\NVorbis\BufferedReadStream.cs" />
     <Compile Include="Decoders\NVorbis\DataPacket.cs" />
     <Compile Include="Decoders\NVorbis\Huffman.cs" />
@@ -67,6 +68,8 @@
     <Compile Include="Decoders\NVorbis\Ogg\OggPacket.cs" />
     <Compile Include="Decoders\NVorbis\Ogg\OggPacketReader.cs" />
     <Compile Include="Decoders\NVorbis\Ogg\OggPageFlags.cs" />
+    <Compile Include="Decoders\NVorbisDecoder.cs" />
+    <Compile Include="AudioStreamer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
