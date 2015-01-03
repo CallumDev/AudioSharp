@@ -7,9 +7,21 @@ namespace AudioSharp
 		IStreamingAudio streamer;
 		IAudioDevice device;
 		AudioFile currentFile;
+		float volume = 1f;
+
 		public int BufferSize {
 			get;
 			private set;
+		}
+		public float Volume {
+			get {
+				return volume;
+			}
+			set {
+				volume = value;
+				if (streamer != null)
+					streamer.Volume = value;
+			}
 		}
 		public AudioFile CurrentFile
 		{
@@ -30,6 +42,7 @@ namespace AudioSharp
 			}
 			currentFile = file;
 			streamer = device.CreateStreamer (file.Decoder.Format, file.Decoder.SampleRate);
+			streamer.Volume = volume;
 			streamer.BufferNeeded += GrabBuffer;
 			Play ();
 		}

@@ -14,7 +14,17 @@ namespace AudioSharp.OpenTKSupport
 		int[] bufferIds;
 		PlayState currentState = PlayState.Stopped;
 		OpenTKAudioDevice device;
-
+		float volume = 1f;
+		public float Volume {
+			get {
+				return volume;
+			} set {
+				if (value != volume) {
+					volume = value;
+					AL.Source (sourceId, ALSourcef.Gain, volume);
+				}
+			}
+		}
 		internal OpenTKStreamingAudio (OpenTKAudioDevice device, SoundFormat format, int sampleRate)
 		{
 			switch (format) {
