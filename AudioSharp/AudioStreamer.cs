@@ -4,6 +4,8 @@ namespace AudioSharp
 {
 	public class AudioStreamer : IDisposable
 	{
+		public event EventHandler PlaybackFinished;
+
 		IStreamingAudio streamer;
 		IAudioDevice device;
 		AudioFile currentFile;
@@ -38,13 +40,20 @@ namespace AudioSharp
 		{
 			if (streamer != null) {
 				streamer.BufferNeeded -= GrabBuffer;
+				streamer.PlaybackFinished -= OnPlaybackFinished;
 				streamer.Dispose ();
 			}
 			currentFile = file;
 			streamer = device.CreateStreamer (file.Decoder.Format, file.Decoder.SampleRate);
 			streamer.Volume = volume;
 			streamer.BufferNeeded += GrabBuffer;
+			streamer.PlaybackFinished += OnPlaybackFinished;
 			Play ();
+		}
+		void OnPlaybackFinished(object sender, EventArgs e)
+		{
+			if (PlaybackFinished != null)
+				PlaybackFinished (this, new EventArgs ());
 		}
 		bool GrabBuffer(IStreamingAudio instance, out byte[] buffer)
 		{
@@ -67,6 +76,7 @@ namespace AudioSharp
 		{
 			if (streamer != null) {
 				streamer.BufferNeeded -= GrabBuffer;
+				streamer.PlaybackFinished -= OnPlaybackFinished;
 				streamer.Dispose ();
 			}
 		}

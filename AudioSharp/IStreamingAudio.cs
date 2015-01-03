@@ -9,6 +9,7 @@ namespace AudioSharp
 		void Pause();
 		void Stop();
 		event BufferNeededHandler BufferNeeded;
+		event EventHandler PlaybackFinished;
 		PlayState GetState();
 		float Volume { get; set; }
 	}
