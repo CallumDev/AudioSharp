@@ -5,17 +5,17 @@ namespace AudioSharp
 {
 	public class AudioFile
 	{
-		IContainerFile container;
+		IDecoder decoder;
 		public AudioFile (Stream stream)
 		{
 			if (!stream.CanSeek)
 				throw new NotSupportedException ("Stream that can seek is required");
 
-			container = ContainerDetection.GetContainerFromStream (stream);
+			decoder = DecoderDetection.GetDecoderFromStream (stream);
 		}
 		public CodecId CodecId {
 			get {
-				return container.GetCodecId ();
+				return decoder.GetCodecId ();
 			}
 		}
 	}

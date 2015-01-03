@@ -35,13 +35,13 @@
     <Compile Include="PlayState.cs" />
     <Compile Include="AudioFile.cs" />
     <Compile Include="IAudioDevice.cs" />
-    <Compile Include="Containers\IContainerFile.cs" />
-    <Compile Include="Containers\ContainerDetection.cs" />
-    <Compile Include="Containers\RIFFContainer.cs" />
-    <Compile Include="Containers\OggContainer.cs" />
     <Compile Include="CodecId.cs" />
     <Compile Include="SoundFormat.cs" />
     <Compile Include="IStreamingAudio.cs" />
+    <Compile Include="Decoders\WaveDecoder.cs" />
+    <Compile Include="Decoders\DecoderDetection.cs" />
+    <Compile Include="Decoders\IDecoder.cs" />
+    <Compile Include="Decoders\OggDecoder.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -54,6 +54,6 @@
     </MonoDevelop>
   </ProjectExtensions>
   <ItemGroup>
-    <Folder Include="Containers\" />
+    <Folder Include="Decoders\" />
   </ItemGroup>
 </Project>

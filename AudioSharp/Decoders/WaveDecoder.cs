@@ -3,14 +3,14 @@ using System.IO;
 using System.Text;
 namespace AudioSharp.Containers
 {
-	class RIFFContainer : IContainerFile
+	class WaveDecoder : IDecoder
 	{
 		//RIFF magic numbers
 		const short CODEC_PCM = 0x1;
 		//members
 		CodecId codec;
 
-		public RIFFContainer (BinaryReader reader)
+		public WaveDecoder (BinaryReader reader)
 		{
 			byte[] buffer = new byte[4];
 			//further checks

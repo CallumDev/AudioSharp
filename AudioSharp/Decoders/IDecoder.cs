@@ -2,7 +2,7 @@
 
 namespace AudioSharp.Containers
 {
-	interface IContainerFile
+	interface IDecoder
 	{
 		CodecId GetCodecId();
 	}

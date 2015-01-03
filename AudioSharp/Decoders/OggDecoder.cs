@@ -2,9 +2,10 @@
 using System.IO;
 namespace AudioSharp.Containers
 {
-	class OggContainer : IContainerFile
+	//TODO: Hook in NVorbis
+	class OggDecoder : IDecoder
 	{
-		public OggContainer (BinaryReader reader)
+		public OggDecoder (BinaryReader reader)
 		{
 		}
 		public CodecId GetCodecId()
