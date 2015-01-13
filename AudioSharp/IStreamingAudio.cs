@@ -33,7 +33,7 @@ namespace AudioSharp
 		/// <summary>
 		/// Occurs when playback is finished.
 		/// </summary>
-		event EventHandler PlaybackFinished;
+		event EventHandler<bool> PlaybackFinished;
 		/// <summary>
 		/// Gets the state of the audio
 		/// </summary>

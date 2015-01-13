@@ -16,7 +16,7 @@ namespace AudioSharp
 		IAudioDevice device;
 		AudioFile currentFile;
 		float volume = 1f;
-
+		bool loop = false;
 		/// <summary>
 		/// Gets the size of the PCM buffers.
 		/// </summary>
@@ -37,6 +37,13 @@ namespace AudioSharp
 				volume = value;
 				if (streamer != null)
 					streamer.Volume = value;
+			}
+		}
+		public bool Loop {
+			get {
+				return loop;
+			} set {
+				loop = value;
 			}
 		}
 		/// <summary>
@@ -90,10 +97,15 @@ namespace AudioSharp
 			streamer.PlaybackFinished += OnPlaybackFinished;
 			Play ();
 		}
-		void OnPlaybackFinished(object sender, EventArgs e)
+		void OnPlaybackFinished(object sender, bool e)
 		{
-			if (PlaybackFinished != null)
-				PlaybackFinished (this, new EventArgs ());
+			if (loop && !e) {
+				currentFile.Decoder.Reset ();
+				streamer.Play ();
+			} else {
+				if (PlaybackFinished != null)
+					PlaybackFinished (this, new EventArgs ());
+			}
 		}
 		bool GrabBuffer(IStreamingAudio instance, out byte[] buffer)
 		{

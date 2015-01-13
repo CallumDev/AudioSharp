@@ -11,7 +11,7 @@ namespace AudioSharp.OpenTKSupport
 	public class OpenTKStreamingAudio : IStreamingAudio
 	{
 		public event BufferNeededHandler BufferNeeded;
-		public event EventHandler PlaybackFinished;
+		public event EventHandler<bool> PlaybackFinished;
 		ALFormat bufferFormat;
 		int sampleRate;
 		int sourceId;
@@ -51,7 +51,7 @@ namespace AudioSharp.OpenTKSupport
 			AL.GenSource (out sid);
 			sourceId = (int)sid;
 			OpenTKAudioDevice.CheckALError ();
-			bufferIds = AL.GenBuffers (3);
+			bufferIds = AL.GenBuffers (4);
 			OpenTKAudioDevice.CheckALError ();
 			this.device = device;
 			this.sampleRate = sampleRate;
@@ -66,7 +66,7 @@ namespace AudioSharp.OpenTKSupport
 				device.Remove (this);
 				threadRunning = false;
 				if(PlaybackFinished != null)
-					PlaybackFinished (this, new EventArgs ());
+					PlaybackFinished (this, true);
 				return;
 			}
 			var state = AL.GetSourceState (sourceId);
@@ -100,7 +100,7 @@ namespace AudioSharp.OpenTKSupport
 				currentState = PlayState.Stopped;
 				threadRunning = false;
 				if(PlaybackFinished != null)
-					PlaybackFinished (this, new EventArgs ());
+					PlaybackFinished (this, false);
 			}
 		}
 
@@ -109,6 +109,7 @@ namespace AudioSharp.OpenTKSupport
 			if (currentState == PlayState.Playing)
 				return;
 			if (currentState == PlayState.Stopped) {
+				finished = false;
 				currentState = PlayState.Playing;
 				for (int i = 0; i < bufferIds.Length; i++) {
 					byte[] buffer;
