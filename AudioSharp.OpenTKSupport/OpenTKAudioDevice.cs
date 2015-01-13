@@ -13,19 +13,22 @@ namespace AudioSharp.OpenTKSupport
 	{
 		internal AudioContext context;
 		internal bool ready = false;
+		bool createContext;
 		bool running = true;
 		//ConcurrentQueues to avoid threading errors
 		ConcurrentQueue<OpenTKStreamingAudio> toRemove = new ConcurrentQueue<OpenTKStreamingAudio> ();
 		ConcurrentQueue<OpenTKStreamingAudio> toAdd = new ConcurrentQueue<OpenTKStreamingAudio> ();
 		List<OpenTKStreamingAudio> instances = new List<OpenTKStreamingAudio> ();
-		public OpenTKAudioDevice()
+		public OpenTKAudioDevice(bool createContext = false)
 		{
+			this.createContext = createContext;
 			new Thread (new ThreadStart (UpdateThread)).Start ();
 		}
 
 		void UpdateThread()
 		{
-			context = new AudioContext ();
+			if(createContext)
+				context = new AudioContext ();
 			ready = true;
 			while (running) {
 				//remove from items to update

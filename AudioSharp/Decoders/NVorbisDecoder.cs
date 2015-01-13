@@ -21,6 +21,10 @@ namespace AudioSharp.Decoders
 				throw new NotSupportedException (string.Format ("{0} channels not supported", reader.Channels));
 			}
 		}
+		public void Dispose()
+		{
+			reader.Dispose();
+		}
 		public CodecId CodecId
 		{
 			get {

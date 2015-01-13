@@ -119,6 +119,10 @@ namespace AudioSharp.Decoders
 			reader.Read (buffer, 0, length);
 			return length;
 		}
+		public void Dispose()
+		{
+			reader.Dispose();
+		}
 	}
 }
 

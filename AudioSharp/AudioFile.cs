@@ -47,6 +47,11 @@ namespace AudioSharp
 				return Decoder.Duration;
 			}
 		}
+
+		public void Dispose()
+		{
+			Decoder.Dispose();
+		}
 	}
 }
 

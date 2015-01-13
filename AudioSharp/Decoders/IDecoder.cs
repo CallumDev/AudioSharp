@@ -2,7 +2,7 @@
 
 namespace AudioSharp.Decoders
 {
-	public interface IDecoder
+	public interface IDecoder : IDisposable
 	{
 		CodecId CodecId { get; }
 		TimeSpan Duration { get; }
