@@ -76,9 +76,7 @@ namespace AudioSharp.OpenTKSupport
 					AL.SourcePause (sourceId);
 				return;
 			}
-			if (currentState == PlayState.Playing && state != ALSourceState.Playing) {
-				AL.SourcePlay (sourceId);
-			}
+
 			//load buffers
 			int processed_count;
 			AL.GetSource (sourceId, ALGetSourcei.BuffersProcessed, out processed_count);
@@ -93,12 +91,11 @@ namespace AudioSharp.OpenTKSupport
 				--processed_count;
 			}
 			//are we finished?
-			int queued_count;
-			AL.GetSource (sourceId, ALGetSourcei.BuffersQueued, out queued_count);
-			if (queued_count == 0 && finished) {
+			if (finished && state == ALSourceState.Stopped) {
 				device.Remove (this);
 				currentState = PlayState.Stopped;
 				threadRunning = false;
+				Empty ();
 				if(PlaybackFinished != null)
 					PlaybackFinished (this, false);
 			}
